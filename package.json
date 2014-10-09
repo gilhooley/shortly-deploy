@@ -31,6 +31,7 @@
     "sqlite3": "~2.2.0"
   },
   "devDependencies": {
+    "mongoose": "^3.8.17",
     "supertest": "^0.10.0"
   }
 }
