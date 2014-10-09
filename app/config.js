@@ -1,62 +1,17 @@
-// var Bookshelf = require('bookshelf');
-var path = require('path');
+//Main purpose of the config file is to establish connection to the db and export it.
 
-// FIX ME
-var port = 'mongodb://shortlyjl.azurewebsites.net/' + process.env.PORT || 'mongodb://localhost/' + 4568;
+var mongoose = require('mongoose'); //import mongoose
 
-var mongoose = require('mongoose');
-mongoose.connect(port);
+mongoose.connect('mongodb://localhost/test'); //connect mongoose to test
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  var userSchema = mongoose.Schema({
-    username: String,
-    password: String,
-    id: Number
-  });
+var db = mongoose.connection; //establish that connection and save to db
 
-  var User = mongoose.model('User', userSchema);
-
-
-
-
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function(){
+  console.log('connection oepn')
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = db;  //export db.
 
 
 
@@ -106,4 +61,3 @@ db.once('open', function callback () {
 //   }
 // });
 
-module.exports = db;
