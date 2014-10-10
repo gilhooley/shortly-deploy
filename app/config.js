@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'); //import mongoose
 
-mongoose.connect('mongodb://localhost/test'); //connect mongoose to test
+mongoose.connect('mongodb://localhost/shortlydb'); //connect mongoose to test
 
 var db = mongoose.connection; //establish that connection and save to db
 

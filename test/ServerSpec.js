@@ -21,7 +21,7 @@ describe('', function() {
 
         // Delete objects from db so they can be created later for the test
         Link.remove({url : 'http://www.roflzoo.com/'}).exec();
-        User.remove({username : 'Savannah'}).exec();
+        User.remove({username : 'Svnh'}).exec();
         User.remove({username : 'Phillip'}).exec();
 
         done();
@@ -55,7 +55,7 @@ describe('', function() {
           .end(done);
       });
 
-      xit('New links create a database entry', function(done) {
+      it('New links create a database entry', function(done) {
         request(app)
           .post('/links')
           .send({
@@ -71,7 +71,7 @@ describe('', function() {
           .end(done);
       });
 
-      xit('Fetches the link url title', function(done) {
+      it('Fetches the link url title', function(done) {
         request(app)
           .post('/links')
           .send({
@@ -106,7 +106,7 @@ describe('', function() {
         });
       });
 
-      xit('Returns the same shortened code if attempted to add the same URL twice', function(done) {
+      it('Returns the same shortened code if attempted to add the same URL twice', function(done) {
         var firstCode = link.code
         request(app)
           .post('/links')
@@ -120,7 +120,7 @@ describe('', function() {
           .end(done);
       });
 
-      xit('Shortcode redirects to correct url', function(done) {
+      it('Shortcode redirects to correct url', function(done) {
         var sha = link.code;
         request(app)
           .get('/' + sha)
